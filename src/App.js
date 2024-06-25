@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import QuizForm from './components/QuizForm';
+import QuizDisplay from './components/QuizDisplay';
 import './App.css';
 
 function App() {
+  const [quiz, setQuiz] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Quiz Generator</h1>
+      <QuizForm setQuiz={setQuiz} />
+      {quiz && <QuizDisplay quiz={quiz} />}
     </div>
   );
 }
